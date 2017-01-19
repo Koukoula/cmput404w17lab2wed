@@ -76,3 +76,10 @@ while True:
 				sys.exit(0)
 		if len(response) > 0:	
 			print(response)
+
+		#Dear OS. Wait for one of the following things to happen.
+		select.select(
+			[incommingSocket, clientSocket], #read
+			[],				#write
+			[incomingSocket, clientSocket], #exceptions
+			1.0)				#timeout
